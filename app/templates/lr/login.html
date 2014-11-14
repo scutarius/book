@@ -1,0 +1,29 @@
+<!-- extend from base layout -->
+{% extends "base/base.html" %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Войти</h1>
+<a href="{{ url_for('registration')}}"><H6>зарегистрироваться?</H6></a>
+<form action="" method="post">
+	{{form.hidden_tag()}}
+    <p>
+        Пожалуйста, введите Ваш логин:<br>
+        {{form.login(size=80)}}<br>
+        {% for error in form.errors.login %}
+        <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+
+        И пароль:<br>
+        {{form.password(size=80)}}<br>
+        {% for error in form.errors.password %}
+        <span style="color: red;">{{error}}</span>
+        {% endfor %}<br>
+    </p>
+    <p>{{form.remember_me}} Remember Me</p>
+    <p><input type="submit" value="Sign In"></p>
+</form>
+{% endblock %}

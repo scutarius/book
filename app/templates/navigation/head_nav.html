@@ -1,0 +1,8 @@
+<div>Библиотека: <a href="{{url_for('index')}}">Домой</a>
+                 {% if not g.user.is_authenticated() %}
+                 | <a href="{{url_for('login')}}">Войти</a>
+                 {% endif %}
+                 {% if g.user.is_authenticated() %}
+                 | <a href="{{ url_for('logout') }}">Выйти</a>
+                 {% endif %}
+</div>

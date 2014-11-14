@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<form action="" method="post" enctype="multipart/form-data">
+	{{forms.hidden_tag()}}
+        <p>Наименование книги</p>
+        <p>{{ forms.title(size=40) }}</p><br>
+        <p>Автор</p>
+        <p>{{ forms.author(size=40) }}</p><br>
+        <input type="submit" value="Загрузить" name="book">
+</form>
+
+{% endblock %}

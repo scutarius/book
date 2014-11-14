@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>books</title>
+    {% endif %}
+    {% include "base/base_js.html" %}
+    {% block extrahead %}{% endblock %}
+  </head>
+  <body>
+    {% include "navigation/head_nav.html" %}
+    <hr>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <div style="overflow: hidden;">
+    <div style="width: 100%;">
+        <div id="menu" style="float: left; width: 20%;">
+          {% block menu %}
+          {% include "navigation/side_menu.html" %}
+          {% endblock %}
+        </div>
+        <div id="content" style="float: left;">
+          {% block content %}{% endblock %}
+        </div>
+    </div>
+    </div>
+
+    </div>
+  </body>
+</html>
